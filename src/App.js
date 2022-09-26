@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import SeasonDisplay from "./SeasonDisplay";
-
+import Spinner from "./Spinner";
 class App extends Component {
   // constructor(props) {
   //   super(props);
@@ -26,7 +26,7 @@ class App extends Component {
     if (!this.state.errorMessage && this.state.lat) {
       return <SeasonDisplay lat={this.state.lat} />;
     }
-    return <div>Loading!</div>;
+    return <Spinner />;
   }
 }
 

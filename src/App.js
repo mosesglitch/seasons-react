@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import SeasonDisplay from "./SeasonDisplay";
 import Spinner from "./Spinner";
+
 class App extends Component {
   // constructor(props) {
   //   super(props);
@@ -18,8 +19,7 @@ class App extends Component {
   componentDidUpdate() {
     console.log("My component just rerendered");
   }
-
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error:{this.state.errorMessage}</div>;
     }
@@ -27,6 +27,9 @@ class App extends Component {
       return <SeasonDisplay lat={this.state.lat} />;
     }
     return <Spinner />;
+  }
+  render() {
+    return <div className="border red">{this.renderContent()}</div>;
   }
 }
 

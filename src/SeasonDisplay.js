@@ -1,37 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import React, { Component } from "react";
+import React from "react";
 
-class SeasonDisplay extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // Only time we do direct assignment
-  //   this.state = { lat: null, errorMessage: "" };
-  // }
-  state = { lat: null, errorMessage: "" };
-  componentDidMount() {
-    window.navigator.geolocation.getCurrentPosition(
-      (position) => this.setState({ lat: position.coords.latitude }),
-      (err) => this.setState({ errorMessage: err.message })
-    );
+const getSeason = (lat, month) => {
+  const season = getSeason(props.lat, new Date().getMonth());
+  if (month > 2 && month < 9) {
+    lat > 0;
   }
-  componentDidUpdate() {
-    console.log("My component just rerendered");
-  }
+};
 
-  render() {
-    if (this.state.errorMessage && !this.state.lat) {
-      return <div>Error:{this.state.errorMessage}</div>;
-    }
-    if (!this.state.errorMessage && this.state.lat) {
-      return (
-        <div>
-          Latitude: {this.state.lat}
-          <br />
-        </div>
-      );
-    }
-    return <div>Loading!</div>;
-  }
-}
+const SeasonDisplay = (props) => {
+  console.log("Hallo", props.lat);
+  return <div>Season Display</div>;
+};
 
 export default SeasonDisplay;
